@@ -1,0 +1,289 @@
+{
+  "ModelName": "AnOnlineShop",
+  "ModelMetadata": {
+    "Author": "Samaneh Utter",
+    "DateCreated": "Jun 24, 2020, 04:20 PM",
+    "DateLastModified": "Jun 24, 2020, 05:37 PM",
+    "Description": "This data model represents an Amazon DynamoDB schema for an online shop.",
+    "Version": "1.0"
+  },
+  "DataModel": [
+    {
+      "TableName": "OnlineShop",
+      "KeyAttributes": {
+        "PartitionKey": {
+          "AttributeName": "PK",
+          "AttributeType": "S"
+        },
+        "SortKey": {
+          "AttributeName": "SK",
+          "AttributeType": "S"
+        }
+      },
+      "NonKeyAttributes": [
+        {
+          "AttributeName": "EntityType",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "Email",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "Name",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "Detail",
+          "AttributeType": "M"
+        },
+        {
+          "AttributeName": "Price",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "Address",
+          "AttributeType": "M"
+        },
+        {
+          "AttributeName": "Quantity",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "Type",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "Amount",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "Date",
+          "AttributeType": "S"
+        }
+      ],
+      "TableData": [
+        {
+          "PK": {
+            "S": "c#12345"
+          },
+          "SK": {
+            "S": "c#12345"
+          },
+          "EntityType": {
+            "S": "customer"
+          },
+          "Email": {
+            "S": "samaneh@example.com"
+          },
+          "Name": {
+            "S": "Samaneh"
+          }
+        },
+        {
+          "PK": {
+            "S": "c#23456"
+          },
+          "SK": {
+            "S": "c#23456"
+          },
+          "EntityType": {
+            "S": "customer"
+          },
+          "Email": {
+            "S": "kathleen@example.com"
+          },
+          "Name": {
+            "S": "Kathleen"
+          }
+        },
+        {
+          "PK": {
+            "S": "c#54321"
+          },
+          "SK": {
+            "S": "c#54321"
+          },
+          "EntityType": {
+            "S": "customer"
+          },
+          "Email": {
+            "S": "henrik@example.com"
+          },
+          "Name": {
+            "S": "Henrik"
+          }
+        },
+        {
+          "PK": {
+            "S": "p#12345"
+          },
+          "SK": {
+            "S": "p#12345"
+          },
+          "EntityType": {
+            "S": "product"
+          },
+          "Detail": {
+            "M": {
+              "Name": {
+                "S": "Options Open"
+              },
+              "Description": {
+                "S": "The latest album"
+              }
+            }
+          },
+          "Price": {
+            "S": "100"
+          }
+        },
+        {
+          "PK": {
+            "S": "p#99887"
+          },
+          "SK": {
+            "S": "p#99887"
+          },
+          "EntityType": {
+            "S": "product"
+          },
+          "Detail": {
+            "M": {
+              "Name": {
+                "S": "The Book"
+              },
+              "Description": {
+                "S": "The best book ever"
+              }
+            }
+          },
+          "Price": {
+            "S": "40"
+          }
+        },
+        {
+          "PK": {
+            "S": "w#12345"
+          },
+          "SK": {
+            "S": "w#12345"
+          },
+          "EntityType": {
+            "S": "warehouse"
+          },
+          "Address": {
+            "M": {"Country": {"S": "Sweden"},"County": {"S": "Vastra Gotaland"},"City": {"S": "Goteborg"},"Street": {"S": "MainStreet"},"Number": {"S": "20"},"ZipCode": {"S":"41111"}}
+          }
+        },
+        {
+          "PK": {
+            "S": "w#12376"
+          },
+          "SK": {
+            "S": "w#12376"
+          },
+          "EntityType": {
+            "S": "warehouse"
+          },
+          "Address": {
+            "M": {"Country": {"S": "Sweden"},"County": {"S": "Vastra Gotaland"},"City": {"S": "Boras"},"Street": {"S": "RiverStreet"},"Number": {"S": "20"},"ZipCode": {"S":"11111"}}
+          }
+        },
+        {
+          "PK": {
+            "S": "p#12345"
+          },
+          "SK": {
+            "S": "w#12345"
+          },
+          "EntityType": {
+            "S": "warehouseItem"
+          },
+          "Quantity": {
+            "S": "50"
+          }
+        },
+        {
+          "PK": {
+            "S": "p#99887"
+          },
+          "SK": {
+            "S": "w#12345"
+          },
+          "EntityType": {
+            "S": "warehouseItem"
+          },
+          "Quantity": {
+            "S": "4"
+          }
+        },
+        {
+          "PK": {
+            "S": "p#99887"
+          },
+          "SK": {
+            "S": "w#12376"
+          },
+          "EntityType": {
+            "S": "warehouseItem"
+          },
+          "Quantity": {
+            "S": "4"
+          }
+        },
+        {
+          "PK": {
+            "S": "o#12345"
+          },
+          "SK": {
+            "S": "p#12345"
+          },
+          "EntityType": {
+            "S": "orderItem"
+          },
+          "Quantity": {
+            "S": "2"
+          },
+          "Price": {
+            "S": "100"
+          }
+        },
+        {
+          "PK": {
+            "S": "o#12345"
+          },
+          "SK": {
+            "S": "p#99887"
+          },
+          "EntityType": {
+            "S": "orderItem"
+          },
+          "Quantity": {
+            "S": "5"
+          },
+          "Price": {
+            "S": "40"
+          }
+        },
+        {
+          "PK": {
+            "S": "o#12345"
+          },
+          "SK": {
+            "S": "c#12345"
+          },
+          "EntityType": {
+            "S": "order"
+          },
+          "Date": {
+            "S": "2020-06-21T19:10:00"
+          }
+        }                            
+      ],
+      "DataAccess": {
+        "MySql": {}
+      }
+    }
+  ]
+}

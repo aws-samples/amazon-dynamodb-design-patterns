@@ -1,0 +1,638 @@
+{
+  "ModelName": "AnOnlineShop",
+  "ModelMetadata": {
+    "Author": "Samaneh Utter",
+    "DateCreated": "Jun 24, 2020, 04:20 PM",
+    "DateLastModified": "Jun 24, 2020, 09:56 PM",
+    "Description": "This data model represents an Amazon DynamoDB schema for an online shop.",
+    "Version": "1.0"
+  },
+  "DataModel": [
+    {
+      "TableName": "OnlineShop",
+      "KeyAttributes": {
+        "PartitionKey": {
+          "AttributeName": "PK",
+          "AttributeType": "S"
+        },
+        "SortKey": {
+          "AttributeName": "SK",
+          "AttributeType": "S"
+        }
+      },
+      "NonKeyAttributes": [
+        {
+          "AttributeName": "EntityType",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "GSI1-PK",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "GSI1-SK",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "GSI2-PK",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "GSI2-SK",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "Email",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "Name",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "Detail",
+          "AttributeType": "M"
+        },
+        {
+          "AttributeName": "Price",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "Address",
+          "AttributeType": "M"
+        },
+        {
+          "AttributeName": "Quantity",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "Type",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "Amount",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "Date",
+          "AttributeType": "S"
+        }
+      ],
+      "GlobalSecondaryIndexes": [
+        {
+          "IndexName": "GSI1",
+          "KeyAttributes": {
+            "PartitionKey": {
+              "AttributeName": "GSI1-PK",
+              "AttributeType": "S"
+            },
+            "SortKey": {
+              "AttributeName": "GSI1-SK",
+              "AttributeType": "S"
+            }
+          },
+          "Projection": {
+            "ProjectionType": "ALL"
+          }
+        },
+        {
+          "IndexName": "GSI2",
+          "KeyAttributes": {
+            "PartitionKey": {
+              "AttributeName": "GSI2-PK",
+              "AttributeType": "S"
+            },
+            "SortKey": {
+              "AttributeName": "GSI2-SK",
+              "AttributeType": "S"
+            }
+          },
+          "Projection": {
+            "ProjectionType": "ALL"
+          }
+        }
+      ],
+      "TableData": [
+        {
+          "PK": {
+            "S": "c#12345"
+          },
+          "SK": {
+            "S": "c#12345"
+          },
+          "EntityType": {
+            "S": "customer"
+          },
+          "Email": {
+            "S": "samaneh@example.com"
+          },
+          "Name": {
+            "S": "Samaneh"
+          }
+        },
+        {
+          "PK": {
+            "S": "c#23456"
+          },
+          "SK": {
+            "S": "c#23456"
+          },
+          "EntityType": {
+            "S": "customer"
+          },
+          "Email": {
+            "S": "kathleen@example.com"
+          },
+          "Name": {
+            "S": "Kathleen"
+          }
+        },
+        {
+          "PK": {
+            "S": "c#54321"
+          },
+          "SK": {
+            "S": "c#54321"
+          },
+          "EntityType": {
+            "S": "customer"
+          },
+          "Email": {
+            "S": "henrik@example.com"
+          },
+          "Name": {
+            "S": "Henrik"
+          }
+        },
+        {
+          "PK": {
+            "S": "p#12345"
+          },
+          "SK": {
+            "S": "p#12345"
+          },
+          "EntityType": {
+            "S": "product"
+          },
+          "Detail": {
+            "M": {
+              "Name": {
+                "S": "Options Open"
+              },
+              "Description": {
+                "S": "The latest album"
+              }
+            }
+          },
+          "Price": {
+            "S": "100"
+          }
+        },
+        {
+          "PK": {
+            "S": "p#99887"
+          },
+          "SK": {
+            "S": "p#99887"
+          },
+          "EntityType": {
+            "S": "product"
+          },
+          "Detail": {
+            "M": {
+              "Name": {
+                "S": "The Book"
+              },
+              "Description": {
+                "S": "The best book ever"
+              }
+            }
+          },
+          "Price": {
+            "S": "40"
+          }
+        },
+        {
+          "PK": {
+            "S": "w#12345"
+          },
+          "SK": {
+            "S": "w#12345"
+          },
+          "EntityType": {
+            "S": "warehouse"
+          },
+          "Address": {
+            "M": {
+              "Country": {
+                "S": "Sweden"
+              },
+              "County": {
+                "S": "Vastra Gotaland"
+              },
+              "City": {
+                "S": "Goteborg"
+              },
+              "Street": {
+                "S": "MainStreet"
+              },
+              "Number": {
+                "S": "20"
+              },
+              "ZipCode": {
+                "S": "41111"
+              }
+            }
+          }
+        },
+        {
+          "PK": {
+            "S": "w#12376"
+          },
+          "SK": {
+            "S": "w#12376"
+          },
+          "EntityType": {
+            "S": "warehouse"
+          },
+          "Address": {
+            "M": {
+              "Country": {
+                "S": "Sweden"
+              },
+              "County": {
+                "S": "Vastra Gotaland"
+              },
+              "City": {
+                "S": "Boras"
+              },
+              "Street": {
+                "S": "RiverStreet"
+              },
+              "Number": {
+                "S": "20"
+              },
+              "ZipCode": {
+                "S": "11111"
+              }
+            }
+          }
+        },
+        {
+          "PK": {
+            "S": "p#12345"
+          },
+          "SK": {
+            "S": "w#12345"
+          },
+          "EntityType": {
+            "S": "warehouseItem"
+          },
+          "GSI2-PK": {
+            "S": "w#12345"
+          },
+          "GSI2-SK": {
+            "S": "p#12345"
+          },
+          "Quantity": {
+            "S": "50"
+          }
+        },
+        {
+          "PK": {
+            "S": "p#99887"
+          },
+          "SK": {
+            "S": "w#12345"
+          },
+          "EntityType": {
+            "S": "warehouseItem"
+          },
+          "GSI2-PK": {
+            "S": "w#12345"
+          },
+          "GSI2-SK": {
+            "S": "p#99887"
+          },
+          "Quantity": {
+            "S": "4"
+          }
+        },
+        {
+          "PK": {
+            "S": "p#99887"
+          },
+          "SK": {
+            "S": "w#12376"
+          },
+          "EntityType": {
+            "S": "warehouseItem"
+          },
+          "Quantity": {
+            "S": "4"
+          }
+        },
+        {
+          "PK": {
+            "S": "o#12345"
+          },
+          "SK": {
+            "S": "p#12345"
+          },
+          "EntityType": {
+            "S": "orderItem"
+          },
+          "GSI1-PK": {
+            "S": "p#12345"
+          },
+          "GSI1-SK": {
+            "S": "2020-06-21T19:18:00"
+          },
+          "GSI2-PK": {
+            "S": "c#12345"
+          },
+          "GSI2-SK": {
+            "S": "2020-06-21T19:18:00"
+          },
+          "Price": {
+            "S": "100"
+          },
+          "Quantity": {
+            "S": "2"
+          }
+        },
+        {
+          "PK": {
+            "S": "o#12345"
+          },
+          "SK": {
+            "S": "p#99887"
+          },
+          "EntityType": {
+            "S": "orderItem"
+          },
+          "GSI1-PK": {
+            "S": "p#99887"
+          },
+          "GSI1-SK": {
+            "S": "2020-06-21T19:20:00"
+          },
+          "GSI2-PK": {
+            "S": "c#12345"
+          },
+          "GSI2-SK": {
+            "S": "2020-06-21T19:20:00"
+          },
+          "Price": {
+            "S": "40"
+          },
+          "Quantity": {
+            "S": "5"
+          }
+        },
+        {
+          "PK": {
+            "S": "o#12345"
+          },
+          "SK": {
+            "S": "c#12345"
+          },
+          "EntityType": {
+            "S": "order"
+          },
+          "Date": {
+            "S": "2020-06-21T19:10:00"
+          }
+        },
+        {
+          "PK": {
+            "S": "o#12345"
+          },
+          "SK": {
+            "S": "i#55443"
+          },
+          "EntityType": {
+            "S": "invoice"
+          },
+          "GSI1-PK": {
+            "S": "i#55443"
+          },
+          "GSI1-SK": {
+            "S": "i#55443"
+          },
+          "GSI2-PK": {
+            "S": "c#12345"
+          },
+          "GSI2-SK": {
+            "S": "2020-06-21T19:18:00"
+          },
+          "Detail": {
+            "M": {
+              "Payments": {
+                "L": [
+                  {
+                    "M": {
+                      "Type": {
+                        "S": "GiftCard"
+                      },
+                      "Amount": {
+                        "N": "100"
+                      },
+                      "Data": {
+                        "S": "GiftCard data here..."
+                      }
+                    }
+                  },
+                  {
+                    "M": {
+                      "Type": {
+                        "S": "MasterCard"
+                      },
+                      "Amount": {
+                        "N": "300"
+                      },
+                      "Data": {
+                        "S": "Payment data here..."
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "Amount": {
+            "S": "400"
+          },
+          "Date": {
+            "S": "2020-06-21T19:18:00"
+          }
+        },
+        {
+          "PK": {
+            "S": "o#12345"
+          },
+          "SK": {
+            "S": "sh#88899"
+          },
+          "EntityType": {
+            "S": "shipment"
+          },
+          "GSI1-PK": {
+            "S": "sh#88899"
+          },
+          "GSI1-SK": {
+            "S": "sh#88899"
+          },
+          "GSI2-PK": {
+            "S": "w#12376"
+          },
+          "GSI2-SK": {
+            "S": "sh#88899"
+          },
+          "Address": {
+            "M": {
+              "Country": {
+                "S": "Sweden"
+              },
+              "County": {
+                "S": "Vastra Gotaland"
+              },
+              "City": {
+                "S": "Goteborg"
+              },
+              "Street": {
+                "S": "Slanbarsvagen"
+              },
+              "Number": {
+                "S": "34"
+              },
+              "ZipCode": {
+                "S": "41787"
+              }
+            }
+          },
+          "Type": {
+            "S": "Express"
+          },
+          "Date": {
+            "S": "2020-06-22T08:20:00"
+          }
+        },
+        {
+          "PK": {
+            "S": "o#12345"
+          },
+          "SK": {
+            "S": "sh#98765"
+          },
+          "EntityType": {
+            "S": "shipment"
+          },
+          "GSI1-PK": {
+            "S": "sh#98765"
+          },
+          "GSI1-SK": {
+            "S": "sh#98765"
+          },
+          "GSI2-PK": {
+            "S": "w#12345"
+          },
+          "GSI2-SK": {
+            "S": "sh#98765"
+          },
+          "Address": {
+            "M": {
+              "Country": {
+                "S": "Sweden"
+              },
+              "County": {
+                "S": "Vastra Gotaland"
+              },
+              "City": {
+                "S": "Goteborg"
+              },
+              "Street": {
+                "S": "Slanbarsvagen"
+              },
+              "Number": {
+                "S": "34"
+              },
+              "ZipCode": {
+                "S": "41787"
+              }
+            }
+          },
+          "Type": {
+            "S": "Express"
+          },
+          "Date": {
+            "S": "2020-06-22T10:20:00"
+          }
+        },
+        {
+          "PK": {
+            "S": "o#12345"
+          },
+          "SK": {
+            "S": "shp#55555"
+          },
+          "EntityType": {
+            "S": "shipmentItem"
+          },
+          "GSI1-PK": {
+            "S": "sh#98765"
+          },
+          "GSI1-SK": {
+            "S": "p#12345"
+          },
+          "Quantity": {
+            "S": "2"
+          }
+        },
+        {
+          "PK": {
+            "S": "o#12345"
+          },
+          "SK": {
+            "S": "shp#12345"
+          },
+          "EntityType": {
+            "S": "shipmentItem"
+          },
+          "GSI1-PK": {
+            "S": "sh#98765"
+          },
+          "GSI1-SK": {
+            "S": "p#99887"
+          },
+          "Quantity": {
+            "S": "3"
+          }
+        },
+        {
+          "PK": {
+            "S": "o#12345"
+          },
+          "SK": {
+            "S": "shp#54321"
+          },
+          "EntityType": {
+            "S": "shipmentItem"
+          },
+          "GSI1-PK": {
+            "S": "sh#88899"
+          },
+          "GSI1-SK": {
+            "S": "p#99887"
+          },
+          "Quantity": {
+            "S": "2"
+          }
+        }
+      ],
+      "DataAccess": {
+        "MySql": {}
+      }
+    }
+  ]
+}

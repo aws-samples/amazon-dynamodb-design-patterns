@@ -1,0 +1,93 @@
+{
+  "ModelName": "AnOnlineShop",
+  "ModelMetadata": {
+    "Author": "Samaneh Utter",
+    "DateCreated": "Jun 24, 2020, 04:20 PM",
+    "DateLastModified": "Jun 24, 2020, 05:29 PM",
+    "Description": "This data model represents an Amazon DynamoDB schema for an online shop.",
+    "Version": "1.0"
+  },
+  "DataModel": [
+    {
+      "TableName": "OnlineShop",
+      "KeyAttributes": {
+        "PartitionKey": {
+          "AttributeName": "PK",
+          "AttributeType": "S"
+        },
+        "SortKey": {
+          "AttributeName": "SK",
+          "AttributeType": "S"
+        }
+      },
+      "NonKeyAttributes": [
+        {
+          "AttributeName": "EntityType",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "Email",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "Name",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "Detail",
+          "AttributeType": "M"
+        },
+        {
+          "AttributeName": "Price",
+          "AttributeType": "S"
+        }
+      ],
+      "TableData": [
+        {
+          "PK": {
+            "S": "c#12345"
+          },
+          "SK": {
+            "S": "c#12345"
+          },
+          "EntityType": {
+            "S": "customer"
+          },
+          "Email": {
+            "S": "samaneh@example.com"
+          },
+          "Name": {
+            "S": "Samaneh"
+          }
+        },
+        {
+          "PK": {
+            "S": "p#12345"
+          },
+          "SK": {
+            "S": "p#12345"
+          },
+          "EntityType": {
+            "S": "product"
+          },
+          "Detail": {
+            "M": {
+              "Name": {
+                "S": "Options Open"
+              },
+              "Description": {
+                "S": "The latest album"
+              }
+            }
+          },
+          "Price": {
+            "S": "100"
+          }
+        }
+      ],
+      "DataAccess": {
+        "MySql": {}
+      }
+    }
+  ]
+}

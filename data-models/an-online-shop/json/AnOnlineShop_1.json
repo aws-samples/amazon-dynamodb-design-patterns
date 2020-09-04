@@ -1,0 +1,33 @@
+
+{
+  "ModelName": "AnOnlineShop",
+  "ModelMetadata": {
+    "Author": "Samaneh Utter",
+    "DateCreated": "Jun 24, 2020, 04:20 PM",
+    "DateLastModified": "Jun 24, 2020, 04:28 PM",
+    "Description": "This data model represents an Amazon DynamoDB schema for an online shop.",
+    "Version": "1.0"
+  },
+  "DataModel": [
+    {
+      "TableName": "OnlineShop",
+      "KeyAttributes": {
+        "PartitionKey": {
+          "AttributeName": "PK",
+          "AttributeType": "S"
+        },
+        "SortKey": {
+          "AttributeName": "SK",
+          "AttributeType": "S"
+        }
+      },
+      "NonKeyAttributes": [        
+      ],
+      "TableData": [        
+      ],
+      "DataAccess": {
+        "MySql": {}
+      }
+    }
+  ]
+}
