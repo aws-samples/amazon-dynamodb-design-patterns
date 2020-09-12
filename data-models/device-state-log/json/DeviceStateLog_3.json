@@ -1,0 +1,250 @@
+{
+  "ModelName": "DeviceStateLog",
+  "ModelMetadata": {
+    "Author": "Samaneh Utter",
+    "DateCreated": "Apr 24, 2020, 02:40 PM",
+    "DateLastModified": "Sep 10, 2020, 12:13 PM",
+    "Description": "This data model show case several NoSQL design patterns for Amazon DynamoDB for DeviceStateLog example.",
+    "Version": "1.0"
+  },
+  "DataModel": [
+    {
+      "TableName": "DeviceStateLog",
+      "KeyAttributes": {
+        "PartitionKey": {
+          "AttributeName": "DeviceID",
+          "AttributeType": "S"
+        },
+        "SortKey": {
+          "AttributeName": "State#Date",
+          "AttributeType": "S"
+        }
+      },
+      "NonKeyAttributes": [
+        {
+          "AttributeName": "Date",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "State",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "Detail",
+          "AttributeType": "M"
+        }
+      ],
+      "TableData": [
+        {
+          "DeviceID": {
+            "S": "d#12345"
+          },
+          "State#Date": {
+            "S": "WARNING1#2020-04-24T14:40:00"
+          },
+          "Date": {
+            "S": "2020-04-24T14:40:00"
+          },
+          "State": {
+            "S": "WARNING1"
+          }
+        },
+        {
+          "DeviceID": {
+            "S": "d#12345"
+          },
+          "State#Date": {
+            "S": "WARNING1#2020-04-24T14:45:00"
+          },
+          "Date": {
+            "S": "2020-04-24T14:45:00"
+          },
+          "State": {
+            "S": "WARNING1"
+          }
+        },
+        {
+          "DeviceID": {
+            "S": "d#12345"
+          },
+          "State#Date": {
+            "S": "WARNING1#2020-04-24T14:50:00"
+          },
+          "Date": {
+            "S": "2020-04-24T14:50:00"
+          },
+          "State": {
+            "S": "WARNING1"
+          }
+        },
+        {
+          "DeviceID": {
+            "S": "d#12345"
+          },
+          "State#Date": {
+            "S": "NORMAL#2020-04-24T14:55:00"
+          },
+          "Date": {
+            "S": "2020-04-24T14:55:00"
+          },
+          "State": {
+            "S": "NORMAL"
+          },
+          "Detail": {
+            "M": {
+              "Detail1": {
+                "S": "This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item."
+              },
+              "Detail2": {
+                "S": "This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. "
+              },
+              "Detail3": {
+                "S": "This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item."
+              },
+              "Detail4": {
+                "S": "This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. "
+              },
+              "Detail11": {
+                "S": "This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item."
+              },
+              "Detail12": {
+                "S": "This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. "
+              },
+              "Detail13": {
+                "S": "This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item."
+              },
+              "Detail14": {
+                "S": "This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. "
+              },
+              "Detail21": {
+                "S": "This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item."
+              },
+              "Detail22": {
+                "S": "This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. "
+              },
+              "Detail23": {
+                "S": "This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item."
+              },
+              "Detail24": {
+                "S": "This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. "
+              },
+              "Detail31": {
+                "S": "This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item."
+              },
+              "Detail32": {
+                "S": "This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. "
+              },
+              "Detail33": {
+                "S": "This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item."
+              },
+              "Detail34": {
+                "S": "This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. This is just a test to increase the size of item. "
+              }
+            }
+          }
+        },
+        {
+          "DeviceID": {
+            "S": "d#54321"
+          },
+          "State#Date": {
+            "S": "WARNING2#2020-04-11T09:25:00"
+          },
+          "Date": {
+            "S": "2020-04-11T09:25:00"
+          },
+          "State": {
+            "S": "WARNING2"
+          }    
+        },
+        {
+          "DeviceID": {
+            "S": "d#54321"
+          },
+          "State#Date": {
+            "S": "NORMAL#2020-04-11T09:30:00"
+          },
+          "Date": {
+            "S": "2020-04-11T09:30:00"
+          },
+          "State": {
+            "S": "NORMAL"
+          }
+        },
+        {
+          "DeviceID": {
+            "S": "d#54321"
+          },
+          "State#Date": {
+            "S": "WARNING3#2020-04-11T05:50:00"
+          },
+          "Date": {
+            "S": "2020-04-11T05:50:00"
+          },
+          "State": {
+            "S": "WARNING3"
+          }
+        },
+        {
+          "DeviceID": {
+            "S": "d#54321"
+          },
+          "State#Date": {
+            "S": "WARNING3#2020-04-11T05:55:00"
+          },
+          "Date": {
+            "S": "2020-04-11T05:55:00"
+          },
+          "State": {
+            "S": "WARNING3"
+          }
+        },
+        {
+          "DeviceID": {
+            "S": "d#54321"
+          },
+          "State#Date": {
+            "S": "NORMAL#2020-04-11T06:00:00"
+          },
+          "Date": {
+            "S": "2020-04-11T06:00:00"
+          },
+          "State": {
+            "S": "NORMAL"
+          }
+        },
+        {
+          "DeviceID": {
+            "S": "d#11223"
+          },
+          "State#Date": {
+            "S": "WARNING4#2020-04-27T16:10:00"
+          },
+          "Date": {
+            "S": "2020-04-27T16:10:00"
+          },
+          "State": {
+            "S": "WARNING4"
+          }
+        },
+        {
+          "DeviceID": {
+            "S": "d#11223"
+          },
+          "State#Date": {
+            "S": "WARNING4#2020-04-27T16:15:00"
+          },
+          "Date": {
+            "S": "2020-04-27T16:15:00"
+          },
+          "State": {
+            "S": "WARNING4"
+          }
+        }
+      ],
+      "DataAccess": {
+        "MySql": {}
+      }
+    }
+  ]
+}

@@ -46,12 +46,12 @@ The above access patterns are modeled one by one. There is a data model in `json
 
 ### Step 1
 
-Import [`AnOnlineShop_1.json`](json/AnOnlineShop_1.json) to create a new data model in NoSQL Workbench called `AnOnlineShop` as well as a new table called `OnlineShop`.
+Import [AnOnlineShop_1.json](json/AnOnlineShop_1.json) to create a new data model in NoSQL Workbench called `AnOnlineShop` as well as a new table called `OnlineShop`.
 Note that the generic names PK and SK are chosen for partition and sort key respectively, this is a practice used in order to store different types of entities in the same table.
 
 ### Step 2
 
-Import [`AnOnlineShop_2.json`](json/AnOnlineShop_2.json) to handle the below access pattern:
+Import [AnOnlineShop_2.json](json/AnOnlineShop_2.json) to handle the below access pattern:
 
 | Access Patterns |Table/GSI/LSI|Key Condition|Filter Expression| Example|
 | :---        | :---         | :---     | :---    |:---|
@@ -61,7 +61,7 @@ As mentioned earlier, some entities does not have any relationships to other ent
 
 ### Step 3
 
-Import [`AnOnlineShop_3.json`](json/AnOnlineShop_3.json) to respond to the following access pattern about the Product entity:
+Import [AnOnlineShop_3.json](json/AnOnlineShop_3.json) to respond to the following access pattern about the Product entity:
 
 | Access Patterns |Table/GSI/LSI|Key Condition|Filter Expression| Example|
 | :---        | :---         | :---     | :---    |:---|
@@ -69,7 +69,7 @@ Import [`AnOnlineShop_3.json`](json/AnOnlineShop_3.json) to respond to the follo
 
 ### Step 4
 
-To handle the following access pattern for the Warehouse entity, import [`AnOnlineShop_4.json`](json/AnOnlineShop_4.json):
+To handle the following access pattern for the Warehouse entity, import [AnOnlineShop_4.json](json/AnOnlineShop_4.json):
 
 | Access Patterns |Table/GSI/LSI|Key Condition|Filter Expression| Example|
 | :---        | :---         | :---     | :---    |:---|
@@ -84,7 +84,7 @@ So far, Customer, Product and Warehouse entities are added to the table:
 
 ### Step 5
 
-Let's continue by importing [`AnOnlineShop_5.json`](json/AnOnlineShop_5.json):
+Let's continue by importing [AnOnlineShop_5.json](json/AnOnlineShop_5.json):
 
 | Access Patterns |Table/GSI/LSI|Key Condition|Filter Expression| Example|
 | :---        | :---         | :---     | :---    |:---|
@@ -102,11 +102,11 @@ Read more about begins_with() and other expressions that can be applied to sort 
 
 ### Step 6
 
-Let's populate the table with some more Customer, Product and Warehouse items by importing [`AnOnlineShop_6.json`](json/AnOnlineShop_6.json).
+Let's populate the table with some more Customer, Product and Warehouse items by importing [AnOnlineShop_6.json](json/AnOnlineShop_6.json).
 
 ### Step 7
 
-Import [`AnOnlineShop_7.json`](json/AnOnlineShop_7.json) to build an item collection for Order that can respond to the following access patterns:
+Import [AnOnlineShop_7.json](json/AnOnlineShop_7.json) to build an item collection for Order that can respond to the following access patterns:
 
 | Access Patterns |Table/GSI/LSI|Key Condition|Filter Expression| Example|
 | :---        | :---         | :---     | :---    |:---|
@@ -122,7 +122,7 @@ Below, the 1:M relationship between Order and Product is modeled as OrderItem en
  
 ### Step 8
 
-Import [`AnOnlineShop_8.json`](json/AnOnlineShop_8.json) to add an Invoice entity to the Order item collection to handle this access pattern:
+Import [AnOnlineShop_8.json](json/AnOnlineShop_8.json) to add an Invoice entity to the Order item collection to handle this access pattern:
 
 | Access Patterns |Table/GSI/LSI|Key Condition|Filter Expression| Example|
 | :---        | :---         | :---     | :---    |:---|
@@ -136,7 +136,7 @@ Import [`AnOnlineShop_8.json`](json/AnOnlineShop_8.json) to add an Invoice entit
 
 ### Step 9
 
-Import [`AnOnlineShop_9.json`](json/AnOnlineShop_9.json) to add Shipment entities to Order item collection:
+Import [AnOnlineShop_9.json](json/AnOnlineShop_9.json) to add Shipment entities to Order item collection:
 
 | Access Patterns |Table/GSI/LSI|Key Condition|Filter Expression| Example|
 | :---        | :---         | :---     | :---    |:---|
@@ -151,7 +151,7 @@ Notice how the Order item collection contains the different relations that an Or
 
 ## Step 10
 
-In the previous steps, an item collection for Order was created. Import [`AnOnlineShop_10.json`](json/AnOnlineShop_10.json) to create a new item collection that makes it possible to retrieve OrderItem data from several Order item collections. The first global secondary index (GSI) is created for this reason. 
+In the previous steps, an item collection for Order was created. Import [AnOnlineShop_10.json](json/AnOnlineShop_10.json) to create a new item collection that makes it possible to retrieve OrderItem data from several Order item collections. The first global secondary index (GSI) is created for this reason. 
 
 In the table, items which contain attributes that are set as primary keys for the GSI, will automatically be populated in the GSI via Amazon DynamoDB. There is no need to manually do any additional inserts to the GSI.
 
@@ -171,7 +171,7 @@ In the table, items which contain attributes that are set as primary keys for th
 
 ### Step 11
 
-Import [`AnOnlineShop_11.json`](json/AnOnlineShop_11.json) to handle the following access patterns related to Invoice. As can be seen, even though there are two different access patterns, they are realized using the same key condition. Payments are defined as an attribute with Map data type on the Invoice entity.
+Import [AnOnlineShop_11.json](json/AnOnlineShop_11.json) to handle the following access patterns related to Invoice. As can be seen, even though there are two different access patterns, they are realized using the same key condition. Payments are defined as an attribute with Map data type on the Invoice entity.
 
 | Access Patterns |Table/GSI/LSI|Key Condition|Filter Expression| Example|
 | :---        | :---         | :---     | :---    |:---|
@@ -185,7 +185,7 @@ Import [`AnOnlineShop_11.json`](json/AnOnlineShop_11.json) to handle the followi
 
 ### Step 12
 
-Import [`AnOnlineShop_12.json`](json/AnOnlineShop_12.json) to handle the following access patterns. 
+Import [AnOnlineShop_12.json](json/AnOnlineShop_12.json) to handle the following access patterns. 
 
 | Access Patterns |Table/GSI/LSI|Key Condition|Filter Expression| Example|
 | :---        | :---         | :---     | :---    |:---|
@@ -216,7 +216,7 @@ Notice that ShipmentItem entities are added to the Order item collection in orde
 
 ### Step 13
 
-Import [`AnOnlineShop_13.json`](json/AnOnlineShop_13.json) to model the final access patterns:
+Import [AnOnlineShop_13.json](json/AnOnlineShop_13.json) to model the final access patterns:
 
 | Access Patterns |Table/GSI/LSI|Key Condition|Filter Expression| Example|
 | :---        | :---         | :---     | :---    |:---|
@@ -231,7 +231,7 @@ Import [`AnOnlineShop_13.json`](json/AnOnlineShop_13.json) to model the final ac
 
 ### Step 14
 
-Import [`AnOnlineShop_facets.json`](json/AnOnlineShop_facets.json) to see the [facets](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/workbench.Visualizer.Facets.html) for the different access patterns of this use case.
+Import [AnOnlineShop_facets.json](json/AnOnlineShop_facets.json) to see the [facets](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/workbench.Visualizer.Facets.html) for the different access patterns of this use case.
 
 ### Step 15
 
@@ -265,7 +265,7 @@ When working on a real use case, involve the key stakeholders in the review iter
 |Get all invoices for a given customerId for a given date range|GSI2|PK=customerId and SK **between** date1 **and** date2|EntityType="invoice"|PK="c#12345" and SK between "2020-06-01" and "2020-06-15"|
 |Get all products ordered by a given customerId for a given date range|GSI2|PK=customerId and SK **between** date1 **and** date2|EntityType="orderItem"|PK="c#12345" and SK between "2020-06-01" and "2020-06-15"|
 
-Import [`AnOnlineShop_14.json`](json/AnOnlineShop_14.json) to check the revised data model. Notice that the prefix from the date string is removed and filter expression is used instead. The new access pattern is handled as below:
+Import [AnOnlineShop_14.json](json/AnOnlineShop_14.json) to check the revised data model. Notice that the prefix from the date string is removed and filter expression is used instead. The new access pattern is handled as below:
 
 | Access Patterns |Table/GSI/LSI|Key Condition|Filter Expression| Example|
 | :---        | :---         | :---     | :---    |:---|

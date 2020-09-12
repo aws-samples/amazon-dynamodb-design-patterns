@@ -7,6 +7,7 @@ This repo contains sample data models to demonstrate design patterns for Amazon 
 The data model for each of the use cases below is built step by step, and the data model for each step is provided in `json` format that can be imported to NoSQL Workbench for Amazon DynamoDB.
 
 Sample data models are listed under `/data-models` folder.
+- Device State Log - [*Introductory*]
 - An Online Shop - [*Advanced*]
 
 
