@@ -1,14 +1,13 @@
 # Amazon DynamoDB Design Patterns
 
-This repo contains sample data models to demonstrate design patterns for Amazon DynamoDB.
+This repo contains sample data models and source code to demonstrate design patterns for Amazon DynamoDB.
 
-## Data Models
+## Examples
 
-The data model for each of the use cases below is built step by step, and the data model for each step is provided in `json` format that can be imported to NoSQL Workbench for Amazon DynamoDB.
-
-Sample data models are listed under `/data-models` folder.
-- Device State Log - [*Introductory*]
-- An Online Shop - [*Advanced*]
+Data models and source code are listed under the `/examples` folder.
+- Device State Log - [*Data model*]
+- An Online Shop - [*Data model*]
+- Implementing version control using Amazon Dynamodb - [*Source code*]
 
 
 ## NoSQL Design

@@ -1,0 +1,56 @@
+aws dynamodb query \
+  --table-name DeviceStateLog \
+  --key-condition-expression "#dID = :dID" \
+  --no-scan-index-forward \
+  --filter-expression "#s = :s" \
+  --expression-attribute-names '{"#dID":"DeviceID","#s":"State"}' \
+  --expression-attribute-values '{":dID":{"S":"d#12345"},":s":{"S":"WARNING1"}}' \
+  --return-consumed-capacity TOTAL
+
+aws dynamodb query \
+  --table-name DeviceStateLog \
+  --key-condition-expression "#dID = :dID" \
+  --no-scan-index-forward \
+  --expression-attribute-names '{"#dID":"DeviceID"}' \
+  --expression-attribute-values '{":dID":{"S":"d#12345"}}' \
+  --return-consumed-capacity TOTAL
+
+aws dynamodb query \
+  --table-name DeviceStateLog \
+  --no-scan-index-forward \
+  --key-condition-expression "#dID = :dID AND begins_with(#s, :sd)" \
+  --expression-attribute-names '{"#dID":"DeviceID","#s":"State#Date"}' \
+  --expression-attribute-values '{":dID":{"S":"d#12345"},":sd":{"S":"WARNING1#"}}' \
+  --return-consumed-capacity TOTAL
+
+aws dynamodb query \
+  --table-name DeviceStateLog \
+  --index-name GSI1 \
+  --key-condition-expression "#op = :op AND #d  between :d1 AND :d2" \
+  --expression-attribute-names '{"#op": "Operator" , "#d": "Date"}' \
+  --expression-attribute-values '{":op": {"S":"Liz"} , ":d1": {"S":"2020-04-20"}, ":d2":{"S":"2020-04-25"}}' \
+  --return-consumed-capacity TOTAL
+
+aws dynamodb query \
+  --table-name DeviceStateLog \
+  --index-name GSI2 \
+  --key-condition-expression "#su = :su" \
+  --expression-attribute-names '{"#su":"EscalatedTo"}' \
+  --expression-attribute-values '{":su":{"S":"Sara"}}' \
+  --return-consumed-capacity TOTAL
+
+aws dynamodb query \
+  --table-name DeviceStateLog \
+  --index-name GSI2 \
+  --key-condition-expression "#su = :su AND begins_with(#s, :sd)" \
+  --expression-attribute-names '{"#su":"EscalatedTo","#s":"State#Date"}' \
+  --expression-attribute-values '{":su":{"S":"Sara"},":sd":{"S":"WARNING4#"}}' \
+  --return-consumed-capacity TOTAL
+
+aws dynamodb query \
+  --table-name DeviceStateLog \
+  --index-name GSI2 \
+  --key-condition-expression "#su = :su AND begins_with(#s, :sd)" \
+  --expression-attribute-names '{"#su":"EscalatedTo","#s":"State#Date"}' \
+  --expression-attribute-values '{":su":{"S":"Sara"},":sd":{"S":"WARNING4#2020-04-27"}}' \
+  --return-consumed-capacity TOTAL

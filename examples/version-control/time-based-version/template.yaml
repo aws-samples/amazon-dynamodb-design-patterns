@@ -1,0 +1,148 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+    Time-based version
+
+    Sample SAM Template for time-based versioning solution using Amazon DynamoDB.
+
+Parameters:
+  Solution:
+    Type: String
+    Default: TimeBased
+    Description: Implementing Time-based versioning
+
+Globals:
+  Function:
+    Runtime: python3.8
+    Handler: main.handler
+    Timeout: 30
+    Environment:
+      Variables:
+        TABLE_NAME: !Ref VersionTable
+
+Resources:
+  ###################
+  ### Functions   ###
+  ###################
+  AddEquipmentFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: !Sub "${Solution}-AddEquipment"
+      CodeUri: src/add_equipment/
+      Role: !GetAtt AddEquipmentRole.Arn
+
+  AddNewVersionFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: !Sub "${Solution}-AddNewVersion"
+      CodeUri: src/add_new_version/
+      Role: !GetAtt AddNewVersionRole.Arn
+
+  GetLatestVersionFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: !Sub "${Solution}-GetLatestVersion"
+      CodeUri: src/get_latest_version/
+      Role: !GetAtt GetLatestVersionRole.Arn
+ 
+  ###################
+  ### Table       ###
+  ###################
+  VersionTable:
+    Type: 'AWS::DynamoDB::Table'
+    Properties:
+      TableName: !Sub "${Solution}-VersionTable"
+      ProvisionedThroughput:
+        WriteCapacityUnits: 5
+        ReadCapacityUnits: 5
+      AttributeDefinitions:
+        - AttributeName: PK
+          AttributeType: S
+        - AttributeName: SK
+          AttributeType: S
+      KeySchema:
+        - KeyType: HASH
+          AttributeName: PK
+        - KeyType: RANGE
+          AttributeName: SK
+  
+  ###################
+  ### Roles       ###
+  ###################
+  AddEquipmentRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: !Sub "${Solution}-AddEquipmentRole"
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action:
+              - sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service:
+                - lambda.amazonaws.com
+        Version: 2012-10-17
+      Path: /
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/AWSLambdaExecute
+      Policies:
+        - PolicyName: !Sub "${Solution}-AddEquipmentPolicy"
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: "Allow"
+                Action:
+                  - "dynamodb:PutItem"
+                Resource: !GetAtt VersionTable.Arn
+
+  AddNewVersionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: !Sub "${Solution}-AddNewVersionRole"
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action:
+              - sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service:
+                - lambda.amazonaws.com
+        Version: 2012-10-17
+      Path: /
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/AWSLambdaExecute
+      Policies:
+        - PolicyName: !Sub "${Solution}-AddNewVersionPolicy"
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: "Allow"
+                Action:
+                  - "dynamodb:PutItem"
+                Resource: !GetAtt VersionTable.Arn
+
+  GetLatestVersionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: !Sub "${Solution}-GetLatestVersionRole"
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action:
+              - sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service:
+                - lambda.amazonaws.com
+        Version: 2012-10-17
+      Path: /
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/AWSLambdaExecute
+      Policies:
+        - PolicyName: !Sub "${Solution}-GetLatestVersionPolicy"
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: "Allow"
+                Action:
+                  - "dynamodb:Query"
+                Resource: !GetAtt VersionTable.Arn               
